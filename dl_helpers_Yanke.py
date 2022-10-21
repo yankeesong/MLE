@@ -16,6 +16,22 @@ def try_gpu(i=0):
 def try_all_gpus(): 
     return [gpu(i) for i in range(num_gpus())]
 
+# Parameter Initializations
+def init_normal(module):
+    if type(module) == nn.Linear:
+        nn.init.normal_(module.weight, mean=0, std=0.01)
+        nn.init.zeros_(module.bias)
+def init_constant(module):
+    if type(module) == nn.Linear:
+        nn.init.constant_(module.weight, 1)
+        nn.init.zeros_(module.bias)
+def init_xavier(module):
+    if type(module) == nn.Linear:
+        nn.init.xavier_uniform_(module.weight)
+def init_cnn(module):
+    if type(module) == nn.Linear or type(module) == nn.Conv2d:
+        nn.init.xavier_uniform_(module.weight)
+
 # Wrapper function so that we can add more things after we create a class
 def add_to_class(Class):
     def wrapper(obj):
