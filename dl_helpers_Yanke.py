@@ -186,3 +186,10 @@ class Trainer(d2l.HyperParameters):
             with torch.no_grad():
                 self.model.validation_step(self.prepare_batch(batch))
             self.val_batch_idx += 1
+
+    def clip_gradients(self, grad_clip_val, model):
+        params = [p for p in model.parameters() if p.requires_grad]
+        norm = torch.sqrt(sum(torch.sum((p.grad ** 2)) for p in params))
+        if norm > grad_clip_val:
+            for param in params:
+                param.grad[:] *= grad_clip_val / norm
