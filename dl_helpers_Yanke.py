@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 from d2l import torch as d2l
+from torch.nn import functional as F
 
 # Device Related
 def cpu():
