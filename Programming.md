@@ -625,3 +625,24 @@ def try_all_gpus():
 Y = torch.rand(2, 3, device=try_gpu(1))
 net = net.to(device=try_gpu())
 ```
+
+## Optimizing Structures
+- Hybridizing imperative and sympolib programming:
+```python
+def get_net():
+    net = nn.Sequential(nn.Linear(512, 256),
+            nn.ReLU(),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Linear(128, 2))
+    return net
+x = torch.randn(size=(1, 512))
+net = get_net()
+net = torch.jit.script(net)   # Very easy to optimize!
+net(x)
+```
+
+- Asynchronous computation
+- Automatic Parallelism
+- Training on multiple GPUs
+- Parameter servers
