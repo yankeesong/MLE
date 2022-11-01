@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 import math
-import torch
+import torch, torchvision
+import sys, os
 from torch import nn
 from d2l import torch as d2l
 from torch.nn import functional as F
