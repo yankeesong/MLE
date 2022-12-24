@@ -627,7 +627,7 @@ net = net.to(device=try_gpu())
 ```
 
 ## Optimizing Structures
-- Hybridizing imperative and sympolib programming:
+- Hybridizing imperative and sympolic programming:
 ```python
 def get_net():
     net = nn.Sequential(nn.Linear(512, 256),
