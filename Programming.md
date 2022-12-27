@@ -469,7 +469,7 @@ GEN_CLOSED
         - Online debugging: attach to a running process to isolate  problem
         - Isolation by bisection (e.g. `git bisect`)
         - Inspection after a failure
-    - `pdb`: the python debugger.
+    - `pdb`: the python debugger. [pdb introduction](https://www.digitalocean.com/community/tutorials/how-to-use-the-python-debugger)
 - Profiling
     - `cProfile`: python profiling package
 
